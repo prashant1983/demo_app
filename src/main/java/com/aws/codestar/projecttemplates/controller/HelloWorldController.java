@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.HashMap;
 
 /**
  * Basic Spring web service controller that handles all GET requests.
@@ -22,8 +23,9 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String id) {
-        return ResponseEntity.ok(createResponse(nameMap.get(id)));
+        return ResponseEntity.ok(createResponse(git.get(id)));
     }
+
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
