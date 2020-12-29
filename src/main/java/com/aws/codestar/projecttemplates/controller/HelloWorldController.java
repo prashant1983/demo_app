@@ -25,6 +25,7 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String name) {
         System.out.println("namemap content===============>>>"+nameMap.toString());
+        System.out.println("name content===============>>>"+name);
         return ResponseEntity.ok(createResponse(nameMap.get(name)));
     }
 
@@ -36,7 +37,7 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
     }
 
     private String createResponse(String name) {
-        System.out.println("name content===============>>>"+name);
+        //System.out.println("name content===============>>>"+name);
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
     }
 }
