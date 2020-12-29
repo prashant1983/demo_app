@@ -23,7 +23,7 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String id) {
-        return ResponseEntity.ok(createResponse(git.get(id)));
+        return ResponseEntity.ok(createResponse(nameMap.get(id)));
     }
 
 
