@@ -30,7 +30,7 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
-        nameMap.put(100,name);
+        nameMap.put("100",name);
         return ResponseEntity.ok(createResponse(nameMap.get("100")));
     }
 
