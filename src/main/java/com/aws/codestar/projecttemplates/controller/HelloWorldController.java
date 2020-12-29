@@ -14,16 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class HelloWorldController {
 
+private static Map<String, String> nameMap= new HashMap<String,String>();
+
     private static final String MESSAGE_FORMAT = "Hello %s!";
+    
+    
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return ResponseEntity.ok(createResponse(name));
+    public ResponseEntity helloWorldGet(@RequestParam(value = "name", defaultValue = "World") String id) {
+        return ResponseEntity.ok(createResponse(nameMap.get(id)));
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity helloWorldPost(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return ResponseEntity.ok(createResponse(name));
+        nameMap.put(100,name);
+        return ResponseEntity.ok(createResponse(nameMap.get(100)));
     }
 
     private String createResponse(String name) {
