@@ -36,6 +36,7 @@ private static Map<String, String> nameMap= new HashMap<String,String>();
     }
 
     private String createResponse(String name) {
+        System.out.println("name content===============>>>"+name);
         return new JSONObject().put("Output", String.format(MESSAGE_FORMAT, name)).toString();
     }
 }
